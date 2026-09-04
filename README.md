@@ -1,74 +1,79 @@
-# Sistema de Cadastro de Pessoa
+# Sistema de Cadastro de Pessoas
 
-Aplicação desktop desenvolvida em Python com PySide6 para cadastro de pessoas.
+Aplicação desktop desenvolvida em Python com PySide6 para realizar o cadastro de pessoas.
 
 ## Funcionalidades
 
 - Cadastro de pessoa física ou jurídica;
+- Seleção entre CPF e CNPJ;
 - Validação de CPF;
 - Validação de CNPJ;
 - Validação de e-mail;
 - Validação de celular;
 - Validação de CEP;
-- Consulta automática de endereço pelo CEP;
+- Consulta automática de endereço através do CEP;
 - Preenchimento automático de logradouro, bairro, cidade e estado;
-- Tratamento de erros de consulta da API;
-- Salvamento dos dados em banco de dados SQLite;
-- Limpeza do formulário;
-- Mensagens de erro e confirmação para o usuário.
+- Cadastro dos dados em banco de dados SQLite;
+- Botão para consultar o CEP;
+- Botão para cadastrar os dados;
+- Botão para limpar o formulário;
+- Mensagens de erro para orientar o usuário quando houver informações inválidas;
+- Tratamento de erros durante a consulta do endereço e no salvamento dos dados.
 
-## Requisitos
+## Tecnologias utilizadas
 
-- Python 3.10 ou superior;
-- Conexão com a internet para consultar o CEP.
+- Python
+- PySide6
+- SQLite
+- Requests
+- API ViaCEP
 
-## Instalação
+## Como executar
 
-Abra o terminal na pasta do projeto e execute:
+### 1. Instalar as dependências
 
-```bash
-python -m venv .venv
-```
+No terminal, dentro da pasta do projeto, execute:
 
-### Windows
-
-```bash
-.venv\Scripts\activate
-```
-
-### Linux/macOS
-
-```bash
-source .venv/bin/activate
-```
-
-Depois instale as dependências:
-
-```bash
 pip install -r requirements.txt
-```
 
-## Execução
+### 2. Executar a aplicação
 
 Execute:
 
-```bash
 python cadastro_pyside.py
+
+O banco de dados SQLite será criado automaticamente quando a aplicação for executada.
+
+## Consulta de endereço
+
+A aplicação utiliza a API ViaCEP para consultar o endereço a partir do CEP informado pelo usuário.
+
+Quando a consulta é realizada com sucesso, os campos de:
+
+- Logradouro;
+- Bairro;
+- Cidade;
+- Estado
+
+são preenchidos automaticamente.
+
+## Banco de dados
+
+Os cadastros são armazenados em um banco de dados SQLite chamado `cadastro.db`.
+
+O banco é criado automaticamente pela aplicação, não sendo necessário criar o arquivo manualmente.
+
+## Estrutura do projeto
+
+```text
+Cadastro-de-Pessoas---POOS/
+│
+├── cadastro_pyside.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-O banco de dados `cadastro.db` será criado automaticamente na primeira execução.
+## Projeto
 
-## Organização
-
-- `cadastro_pyside.py` — aplicação principal, interface, validações, consulta de CEP e banco de dados.
-- `requirements.txt` — dependências do projeto.
-- `.gitignore` — arquivos que não devem ser enviados ao GitHub.
-- `static/style.qss` — reservado para estilos externos, caso sejam separados da interface no futuro.
-
-## API de CEP
-
-A consulta de endereço utiliza a API ViaCEP.
-
-## Autor
-
-Projeto desenvolvido para a atividade prática de CJOPOOS.
+Atividade prática de desenvolvimento de sistema desktop com Python e PySide6.
